@@ -1,53 +1,57 @@
-const timeline = [
+import React from 'react';
+
+const TIMELINE = [
   {
-    year: '2024',
-    title: 'Senior Frontend Engineer',
-    company: 'Nimbus Labs',
-    desc: 'Led development of a Design System and migrated a large app to React Server Components with performance-first patterns.',
+    role: 'Senior Frontend Engineer',
+    company: 'PixelCraft Studio',
+    period: '2023 — Present',
+    points: [
+      'Led the UI architecture for a design system adopted across 5+ products.',
+      'Optimized bundle splitting and SSR, improving TTI by ~32%.',
+    ],
   },
   {
-    year: '2022',
-    title: 'Frontend Engineer',
-    company: 'PixelForge',
-    desc: 'Built accessible UI, data visualizations, and shipped features across a multi-tenant SaaS platform.',
+    role: 'Frontend Engineer',
+    company: 'Aurora Labs',
+    period: '2021 — 2023',
+    points: [
+      'Built interactive 3D product demos using WebGL frameworks.',
+      'Shipped accessible components and robust test coverage.',
+    ],
   },
   {
-    year: '2020',
-    title: 'Junior Developer',
-    company: 'Open Source',
-    desc: 'Contributed to OSS libraries and learned modern tooling: Vite, Tailwind, and FastAPI backends.',
+    role: 'Web Developer',
+    company: 'Freelance',
+    period: '2019 — 2021',
+    points: [
+      'Delivered custom websites for startups with modern stacks.',
+      'Implemented SEO best practices and analytics integrations.',
+    ],
   },
 ];
 
 export default function ExperienceTimeline() {
   return (
-    <section id="experience" className="relative w-full bg-gradient-to-b from-black to-slate-950 py-20 text-white">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-3xl font-bold sm:text-4xl">Journey & Experience</h2>
-        <p className="mt-2 max-w-2xl text-white/70">A quick timeline of roles, milestones, and the growth along the way.</p>
-
-        <div className="mt-10 relative">
-          <div className="absolute left-4 top-0 h-full w-[2px] bg-white/15 sm:left-1/2 sm:-translate-x-1/2" />
-          <ul className="space-y-10">
-            {timeline.map((item, idx) => (
-              <li key={idx} className="relative grid grid-cols-1 items-center gap-4 sm:grid-cols-2">
-                <div className="sm:text-right">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/80 backdrop-blur">
-                    <span className="font-semibold">{item.year}</span>
-                  </div>
-                  <h3 className="mt-2 text-xl font-semibold">{item.title}</h3>
-                  <p className="text-white/70">{item.company}</p>
-                </div>
-                <div className="relative">
-                  <span className="absolute -left-[calc(50vw)] hidden h-[2px] w-[50vw] bg-white/10 sm:block" />
-                  <div className="rounded-xl border border-white/10 bg-white/5 p-5 shadow-inner shadow-black/30">
-                    <p className="text-white/80">{item.desc}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <section id="experience" className="mx-auto max-w-6xl px-6 py-16">
+      <h2 className="text-2xl font-semibold text-white md:text-3xl">Experience</h2>
+      <div className="mt-10 border-l border-white/10 pl-6">
+        {TIMELINE.map((item, idx) => (
+          <div key={idx} className="relative mb-10">
+            <span className="absolute -left-[9px] top-1 block h-4 w-4 rounded-full border border-white/20 bg-white/10" />
+            <div className="flex flex-col gap-1">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <h3 className="text-white">{item.role}</h3>
+                <span className="text-white/60">@ {item.company}</span>
+              </div>
+              <span className="text-sm text-white/50">{item.period}</span>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-white/80">
+                {item.points.map((p, i) => (
+                  <li key={i}>{p}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

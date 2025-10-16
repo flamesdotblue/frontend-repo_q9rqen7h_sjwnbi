@@ -1,40 +1,33 @@
+import React from 'react';
 import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] w-full overflow-hidden">
+    <section className="relative h-[85vh] md:h-screen w-full overflow-hidden bg-black">
       <div className="absolute inset-0">
-        <Spline
-          scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
-        />
+        <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-center px-6 py-24">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
-        <div className="relative">
-          <span className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide text-white/90 backdrop-blur">
-            Portfolio • Interactive • Modern
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-6xl">
-            Anchal Gupta
-          </h1>
-          <p className="mt-4 max-w-2xl text-base text-white/80 sm:text-lg">
-            Creative developer crafting delightful digital experiences. I design, build, and ship modern web apps with performance and polish.
-          </p>
+      {/* Uniform, subtle overlays for readability without blocking interaction */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-lg bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg shadow-white/10 transition hover:scale-105 hover:shadow-white/20"
-            >
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6">
+        <div className="text-white">
+          <p className="mb-3 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">Portfolio</p>
+          <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
+            Anchal Gupta
+            <span className="block text-lg font-normal text-white/80 sm:text-2xl">Frontend Engineer • Creative Developer</span>
+          </h1>
+          <p className="mt-4 max-w-xl text-white/80">
+            Building delightful, performant web experiences with modern tooling and a focus on craft.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-black shadow hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50">
               View Projects
             </a>
-            <a
-              href="#experience"
-              className="rounded-lg border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
-            >
-              Experience
+            <a href="#contact" className="rounded-md bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/30">
+              Get in Touch
             </a>
           </div>
         </div>
